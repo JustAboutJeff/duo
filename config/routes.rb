@@ -1,14 +1,13 @@
 Duo::Application.routes.draw do
  # Root
-   root to: 'team_path'
+   root to: 'users#index'
 
- # User
-   resources :users
+ # Users + Teams
+   resources :users do
+     resouces :teams
+   end
 
- # Team
-   resources :teams
-
- # Person
+ # People
    resources :people
 
  # Sessions

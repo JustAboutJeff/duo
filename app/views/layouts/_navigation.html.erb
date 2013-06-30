@@ -1,18 +1,24 @@
 <div class="contain-to-grid sticky">
   <nav class="top-bar">
+    <!-- Title Area -->
     <ul class="title-area">
-      <li class="icon"><a href="#"><img src='http://placehold.it/80x20'></a></li>
-      <% if logged_in? %>
-      <li><a href="#">Login</a></li>
-      <li class='divider'></li>
-      <li><a href="#">Signup</a></li>
-      <% else %>
-      <li><a href="#">People</a></li>
-      <li class='divider'></li>
-      <li><a href="#">Teams</a></li>
-      <li class='divider'></li>
-      <li><a href="#">Logout</a></li>
-      <% end %>
+      <li class="name">
+        <h1><a href="#">DUO</a></h1>
+        </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
+    <!-- Nav Content Section -->
+    <section class="top-bar-section">
+      <ul class="left">
+        <% if logged_in? %>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+        <% else %>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Teams</a></li>
+        <li><a href="#">Logout</a></li>
+        <% end %>
+      </ul>
+    </section>
   </nav>
 </div>

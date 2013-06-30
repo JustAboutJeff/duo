@@ -2,13 +2,11 @@ Duo::Application.routes.draw do
  # Root
    root to: 'users#index'
 
- # Users + Teams
+ # Users + Teams + People
    resources :users do
-     resouces :teams
+     resources :teams
+     resources :people
    end
-
- # People
-   resources :people
 
  # Sessions
    resources :sessions, :only => :create

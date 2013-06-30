@@ -1,6 +1,7 @@
 // Required global settings and mixins for Foundation
 @import "foundation/foundation-global";
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
 // Settings file to override Foundation variables
 
 // You can find the variables for each component at the bottom of their
@@ -15,10 +16,10 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+$body-bg: #e6ebea;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
+$body-font-family: "Roboto", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-weight: 300;
 // $body-font-style: normal;
 
 // We use this to control font-smoothing
@@ -85,7 +86,7 @@
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: "Raleway Dots", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -115,7 +116,7 @@
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
-// $paragraph-font-weight: normal;
+$paragraph-font-weight: 300;
 // $paragraph-font-size: 1em;
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: emCalc(20px);

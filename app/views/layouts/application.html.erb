@@ -23,14 +23,13 @@
   <body>
     <div class='row'>
     <div class="small-10 small-centered columns">
-    <header>
-      <img src="http://placehold.it/1400x200">
-    <header>
-    <%= render 'layouts/navigation' %>
-
-    <%= yield %>
+      <header>
+        <img src="http://placehold.it/1400x400">
+      </header>
+      <%= render 'layouts/navigation' %>
+      <%= yield %>
+    </div>
+    </div>
     <%= javascript_include_tag "application" %>
-    </div>
-    </div>
   </body>
 </html>

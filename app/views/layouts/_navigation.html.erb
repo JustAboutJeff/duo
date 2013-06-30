@@ -1,16 +1,18 @@
-<header>
-  <img src="http://placehold.it/800x200">
-<header>
-<nav data-spy='affix' data-offset-top="200">
-  <ul>
-    <li><a href="http://placehold.it/80x20"><img id='brand' src='#'></a></li>
-    <% if logged_in? %>
-    <li><a href="#">Login</a></li>
-    <li><a href="#">Signup</a></li>
-    <% else %>
-    <li><a href="#">People</a></li>
-    <li><a href="#">Teams</a></li>
-    <li><a href="#">Logout</a></li>
-    <% end %>
-  </ul>
-</nav>
+<div class="contain-to-grid sticky">
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="icon"><a href="#"><img src='http://placehold.it/80x20'></a></li>
+      <% if logged_in? %>
+      <li><a href="#">Login</a></li>
+      <li class='divider'></li>
+      <li><a href="#">Signup</a></li>
+      <% else %>
+      <li><a href="#">People</a></li>
+      <li class='divider'></li>
+      <li><a href="#">Teams</a></li>
+      <li class='divider'></li>
+      <li><a href="#">Logout</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

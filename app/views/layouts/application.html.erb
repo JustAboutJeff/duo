@@ -2,15 +2,20 @@
 <html>
   <head>
     <title>Duo</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class='container'>
+    <div class='row'>
+    <div class="small-11 small-centered columns">
+    <header>
+      <img src="http://placehold.it/1200x200">
+    <header>
     <%= render 'layouts/navigation' %>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    </div>
     </div>
   </body>
 </html>

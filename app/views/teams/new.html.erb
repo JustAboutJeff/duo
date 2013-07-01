@@ -1,6 +1,6 @@
 <%= form_for @team, :url => user_teams_path(@user) do |f| %>
   <fieldset>
-  <h4 class='subheader'>New Team</h4>
+  <h4>New Team</h4>
   <%= label_tag :name %>
   <%= f.text_field :name, placeholder: "Team name" %>
   <%= f.submit "Create Team" , class: "button tiny"%>

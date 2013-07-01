@@ -1,7 +1,10 @@
 <%= form_for @user, :url => sessions_path do |f| %>
+  <fieldset>
+  <h4>Login</h4>
   <%= label_tag :email %>
   <%= f.email_field :email, placeholder: "JohnDoe@example.com"  %>
   <%= label_tag :password %>
   <%= f.password_field :password, placeholder: "Password"  %>
   <%= f.submit "Login", class: "button tiny"%>
+  </fieldset>
 <% end %>

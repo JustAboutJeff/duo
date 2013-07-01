@@ -1,4 +1,6 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, :url => users_path do |f| %>
+  <fieldset>
+  <h4>Sign Up</h4>
   <%= label_tag :name %>
   <%= f.text_field :name, placeholder: "Username" %>
   <%= label_tag :email %>
@@ -8,4 +10,5 @@
   <%= label_tag :password_confirmation %>
   <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
   <%= f.submit "Sign up" , class: "button tiny"%>
+  </fieldset>
 <% end %>

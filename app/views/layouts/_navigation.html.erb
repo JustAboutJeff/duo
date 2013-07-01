@@ -18,6 +18,7 @@
       <!-- Nav Right Area -->
       <ul class="right">
         <% if logged_in? %>
+        <li><a href="#"><%= current_user.name %></a></li>
         <li><a href="#"><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
         <li><%= link_to 'Logout', logout_path %></li>
         <% else %>

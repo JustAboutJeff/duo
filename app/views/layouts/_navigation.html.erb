@@ -11,8 +11,8 @@
       <!-- Nav Left Area -->
       <ul class="left">
         <% if logged_in? %>
-        <li><a href="">People</a></li>
-        <li><a href="#">Teams</a></li>
+        <li><%= link_to 'People', new_user_person_path(current_user) %></li>
+        <li><%= link_to 'Teams', new_user_team_path(current_user) %></li>
         <% end %>
       </ul>
       <!-- Nav Right Area -->

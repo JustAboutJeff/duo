@@ -6,6 +6,7 @@ class Person < ActiveRecord::Base
 
   attr_accessible :name, :email
 
+  belongs_to :user
   has_many :teams
   has_many :team_members, through: :teams
 
@@ -14,6 +15,8 @@ class Person < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   before_save :get_gravatar_hash
+
+  # scope :team_mates, -> { joins(:teams).where('team_id: ?'), self.teams.id }
 
   private
 

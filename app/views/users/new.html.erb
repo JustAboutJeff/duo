@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+  <%= label_tag :name %>
+  <%= f.text_field :name, placeholder: "Username" %>
+  <%= label_tag :email %>
+  <%= f.email_field :email, placeholder: "Email"  %>
+  <%= label_tag :password %>
+  <%= f.password_field :password, placeholder: "Password"  %>
+  <%= label_tag :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+  <%= f.submit "Sign up" , class: "button tiny"%>
+<% end %>

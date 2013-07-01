@@ -1,16 +1,30 @@
-<header>
-  <img src="http://placehold.it/800x200">
-<header>
-<nav data-spy='affix' data-offset-top="200">
-  <ul>
-    <li><a href="http://placehold.it/80x20"><img id='brand' src='#'></a></li>
-    <% if logged_in? %>
-    <li><a href="#">Login</a></li>
-    <li><a href="#">Signup</a></li>
-    <% else %>
-    <li><a href="#">People</a></li>
-    <li><a href="#">Teams</a></li>
-    <li><a href="#">Logout</a></li>
-    <% end %>
-  </ul>
-</nav>
+<div class="contain-to-grid sticky">
+  <nav class="top-bar">
+    <!-- Title Area -->
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'DUO', root_path %></h1>
+        </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <!-- Nav Left Area -->
+      <ul class="left">
+        <% if logged_in? %>
+        <li><a href="">People</a></li>
+        <li><a href="#">Teams</a></li>
+        <% end %>
+      </ul>
+      <!-- Nav Right Area -->
+      <ul class="right">
+        <% if logged_in? %>
+        <li><a href="#"><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', login_path %></li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

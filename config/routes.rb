@@ -4,15 +4,12 @@ Duo::Application.routes.draw do
 
  # Users + Teams + People
    resources :users do
-     resources :teams, :only => [:create, :destroy]
-     resources :people, :only => [:create, :destroy]
+     resources :teams
+     resources :people
    end
 
  # Sessions
-   get '/sessions/new', to: 'sessions#new', as: :login
-   post '/sessions', to: 'sessions#create'
-   delete '/sessions/:id', to: 'sessions#destroy', as: :logout
-   # resources :sessions, :only => [:create, :destroy]
-   # match '/logout', :to => 'sessions#destroy'
-   # match '/login', :to => 'sessions#new'
+   resources :sessions, :only => :create
+   match '/logout', :to => 'sessions#destroy'
+   match '/login', :to => 'sessions#new'
 end

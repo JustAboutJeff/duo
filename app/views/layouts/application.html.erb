@@ -15,7 +15,7 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-  	<%= stylesheet_link_tag    "application" %>
+  	<%= stylesheet_link_tag  "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -24,7 +24,7 @@
     <div class='row'>
     <div class="small-10 small-centered columns">
       <header>
-        <img src="http://placehold.it/1400x400">
+        <h1>D U O</h1>
       </header>
       <%= render 'layouts/navigation' %>
       <%= yield %>

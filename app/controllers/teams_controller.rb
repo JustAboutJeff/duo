@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @team = Team.new
   end
 
@@ -27,5 +28,4 @@ class TeamsController < ApplicationController
     Team.destroy(params[:id])
     redirec_to root_path
   end
-
 end

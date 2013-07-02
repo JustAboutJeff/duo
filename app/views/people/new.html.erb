@@ -1,0 +1,10 @@
+<%= form_for @person, :url => user_people_path(@user) do |f| %>
+  <fieldset>
+  <h4>New Person</h4>
+  <%= label_tag :name %>
+  <%= f.text_field :name, placeholder: "John Doe" %>
+  <%= label_tag :email %>
+  <%= f.email_field :email, placeholder: "Email"  %>
+  <%= f.submit "Create Person" , class: "button tiny"%>
+  </fieldset>
+<% end %>

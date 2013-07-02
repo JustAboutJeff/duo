@@ -5,10 +5,11 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @peron = Person.find(params[:id])
+    @person = Person.find(params[:id])
   end
 
   def new
+    @user = current_user
     @person = Person.new
   end
 

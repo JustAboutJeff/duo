@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :teams
+  has_many :people
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true

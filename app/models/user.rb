@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
-  before_save :get_gravatar_hash
+  before_save :get_gravatar_hash #, :if => :email.present?
 
   def self.validate(params={})
     return nil unless @user = User.find_by_email(params[:email])

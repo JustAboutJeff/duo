@@ -9,18 +9,19 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @person = Person.new
+    if logged_in?
+      @person = Person.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    person = Person.new(params[:person])
-    if person.save
+    @person = Person.new(params[:person])
+    if @person.save
       redirect_to root_path
     else
-      # TODO: error handling
-      # @errors = person.errors
-      redirect_to new_user_person_path
+      render 'new'
     end
   end
 
@@ -28,5 +29,4 @@ class PeopleController < ApplicationController
     Person.destroy(params[:id])
     redirect_to root_path
   end
-
 end

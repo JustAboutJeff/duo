@@ -9,9 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      # TODO: error handling
-      # @errors = @user.errors
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 

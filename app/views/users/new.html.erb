@@ -1,15 +1,19 @@
-<%= form_for :user, :url => users_path do |f| %>
+<%= form_for @user do |f| %>
   <fieldset>
   <%= render partial: 'errors/error_report', locals: {type: @user} %>
-  <h4>Sign Up</h4>
-  <%= label_tag :name %>
-  <%= f.text_field :name, placeholder: "John" %>
-  <%= label_tag :email %>
-  <%= f.email_field :email, placeholder: "JohnDoe@example.com"  %>
-  <%= label_tag :password %>
-  <%= f.password_field :password, placeholder: "Password"  %>
-  <%= label_tag :password_confirmation %>
-  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-  <%= f.submit "Sign up" , class: "button tiny"%>
+  <h4>Create User</h4>
+    <%= label_tag :name %>
+    <%= f.text_field :name, placeholder: "John" %>
+    <%= label_tag :email %>
+    <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
+    <%= label_tag :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= label_tag :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+    <fieldset>
+    <%= label_tag :admin, "Administrator?" %>
+    <%= check_box_tag "user[admin]", true, false %>
+    </fieldset>
+    <%= f.submit "Create" , class: "button tiny"%>
   </fieldset>
 <% end %>

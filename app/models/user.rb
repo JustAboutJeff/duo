@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   require 'digest'
 
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :admin
 
   has_many :teams_members
   has_many :teams, through: :team_members

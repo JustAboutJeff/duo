@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
   validates :password_confirmation, presence: true, :if => :validate_password?
-  validates :admin, presence: true
 
   has_secure_password
   before_save :get_gravatar_hash

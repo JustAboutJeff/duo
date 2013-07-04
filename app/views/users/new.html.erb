@@ -12,7 +12,7 @@
     <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
     <fieldset>
     <%= label_tag :admin, "Administrator?" %>
-    <%= check_box_tag(:admin, true, false) %>
+    <%= check_box_tag "user[admin]", true, false %>
     </fieldset>
     <%= f.submit "Create" , class: "button tiny"%>
   </fieldset>

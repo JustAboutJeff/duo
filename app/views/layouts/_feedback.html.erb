@@ -1,7 +1,7 @@
 <% if flash.any? %>
   <fieldset>
   <% flash.each do |key,msg| %>
-    <%= content_tag(:span, msg, class: "label alert-#{key}") %>
+    <%= content_tag(:span, msg, class: "label alert#{key}") %>
   <% end %>
   </fieldset>
 <% end %>

@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :password, :password_confirmation
 
-  has_many :teams
-  has_many :team_members, through: :teams
+  has_many :teams_members
+  has_many :teams, through: :team_members
   # is admin boolean column
 
   validates :name, presence: true

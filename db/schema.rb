@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130629124435) do
   end
 
   create_table "team_members", :force => true do |t|
-    t.integer  "person_id",  :null => false
+    t.integer  "user_id",    :null => false
     t.integer  "team_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20130629124435) do
 
   create_table "teams", :force => true do |t|
     t.string   "name",       :null => false
-    t.integer  "user_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -6,4 +6,8 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
   end
+
+  factory :team do
+    name "Channel"
+  end
 end

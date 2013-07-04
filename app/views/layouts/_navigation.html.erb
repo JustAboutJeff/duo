@@ -10,8 +10,8 @@
     <section class="top-bar-section">
       <!-- Nav Left Area -->
       <ul class="left">
-        <% if logged_in? %>
-        <li><%= link_to 'Edit Teams', new_team_path %></li>
+        <% if authorized? %>
+        <li><%= link_to 'Admin Panel', new_team_path %></li>
         <% end %>
       </ul>
       <!-- Nav Right Area -->
@@ -20,8 +20,8 @@
         <li><a href="#"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
         <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to 'Sign In', signin_path %></li>
         <li><%= link_to 'Sign Up', signup_path %></li>
+        <li><%= link_to 'Sign In', signin_path %></li>
         <% end %>
       </ul>
     </section>

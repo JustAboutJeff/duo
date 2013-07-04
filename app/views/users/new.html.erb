@@ -1,10 +1,11 @@
-<%= form_for @user, :url => users_path do |f| %>
+<%= form_for :user, :url => users_path do |f| %>
   <fieldset>
+  <%= render partial: 'errors/error_report', locals: {type: @user} %>
   <h4>Sign Up</h4>
   <%= label_tag :name %>
-  <%= f.text_field :name, placeholder: "Username" %>
+  <%= f.text_field :name, placeholder: "John" %>
   <%= label_tag :email %>
-  <%= f.email_field :email, placeholder: "Email"  %>
+  <%= f.email_field :email, placeholder: "JohnDoe@example.com"  %>
   <%= label_tag :password %>
   <%= f.password_field :password, placeholder: "Password"  %>
   <%= label_tag :password_confirmation %>

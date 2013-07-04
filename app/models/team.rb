@@ -1,13 +1,9 @@
 class Team < ActiveRecord::Base
 
-  # TODO: error handling
-  # attr_reader :errors
+  attr_accessible :name
 
-  attr_accessible :name, :about
-
-  belongs_to :user
-  has_many :people
-  has_many :team_members, through: :people
+  has_many :users
+  has_many :team_members, through: :users
 
   validates :name, uniqueness: true, presence: true
 end

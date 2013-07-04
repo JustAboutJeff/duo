@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
   require 'digest'
 
-  # TODO: error handling
-  # attr_reader :errors
-
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :teams
-  has_many :people
+  has_many :team_members, through: :teams
+  # is admin boolean column
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
@@ -16,12 +14,10 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
-  before_save :get_gravatar_hash #, :if => :email.present?
+  before_save :get_gravatar_hash
 
-  def self.validate(params={})
-    return nil unless @user = User.find_by_email(params[:email])
-    @user.authenticate(params[:password]) ? @user : nil
-  end
+  # scope :team_mates -> { joins(:team_members).where('user_id = ?'), self.id  }
+  # scope :team_mates, -> { joins(:teams).where('team_id: ?'), self.teams.id }
 
   private
 

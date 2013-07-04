@@ -1,0 +1,9 @@
+<% if type.errors.any? %>
+  <div class="panel">
+    <p class="alert label"><%= pluralize(type.errors.count, "error") %> prohibited
+      this <%= type.class.name %> from being created:</p>
+      <% type.errors.full_messages.each do |msg| %>
+        <label class="error"><%= msg %></label>
+      <% end %>
+  </div>
+<% end %>

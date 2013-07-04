@@ -1,27 +1,19 @@
 <%= form_for @user do |f| %>
   <fieldset>
   <%= render partial: 'errors/error_report', locals: {type: @user} %>
-  <h4>Sign Up</h4>
-  <div class="row">
-    <div class="small-2 columns">
-      <%= label_tag :name, class: "right inline" %>
-    </div>
-    <div class="small-6 columns">
-      <%= f.text_field :name, placeholder: "John" %>
-    </div>
-    <div class="small-2 columns">
-      <%= label_tag :admin, "Administrator?", class: "right inline" %>
-    </div>
-    <div class="small-2 columns">
-      <%= f.check_box_tag :admin %>
-    </div>
-  </div>
-  <%= label_tag :email, class: "right inline" %>
-  <%= f.email_field :email, placeholder: "JohnDoe@example.com"  %>
-  <%= label_tag :password, class: "right inline" %>
-  <%= f.password_field :password, placeholder: "Password"  %>
-  <%= label_tag :password_confirmation, class: "right inline" %>
-  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-  <%= f.submit "Sign up" , class: "button tiny"%>
+  <h4>Create User</h4>
+    <%= label_tag :name %>
+    <%= f.text_field :name, placeholder: "John" %>
+    <%= label_tag :email %>
+    <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
+    <%= label_tag :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= label_tag :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+    <fieldset>
+    <%= label_tag :admin, "Administrator?" %>
+    <%= check_box_tag(:admin, true, false) %>
+    </fieldset>
+    <%= f.submit "Create" , class: "button tiny"%>
   </fieldset>
 <% end %>

@@ -1,14 +1,6 @@
 <%= form_for :user, :url => users_path do |f| %>
   <fieldset>
-  <% if @user.errors.any? %>
-    <div class="panel">
-      <p class="alert label"><%= pluralize(@user.errors.count, "error") %> prohibited
-        this user from being created:</p>
-        <% @user.errors.full_messages.each do |msg| %>
-          <label class="error"><%= msg %></label>
-        <% end %>
-    </div>
-  <% end %>
+  <%= render partial: 'errors/error_report', locals: {type: @user} %>
   <h4>Sign Up</h4>
   <%= label_tag :name %>
   <%= f.text_field :name, placeholder: "John" %>

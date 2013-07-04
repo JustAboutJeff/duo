@@ -1,14 +1,6 @@
-<%= form_for [:user, @team] do |f| %>
+<%= form_for @team do |f| %>
   <fieldset>
-  <% if @team.errors.any? %>
-    <div class="panel">
-      <p class="alert label"><%= pluralize(@team.errors.count, "error") %> prohibited
-        this team from being created:</p>
-        <% @team.errors.full_messages.each do |msg| %>
-          <label class="error"><%= msg %></label>
-        <% end %>
-    </div>
-  <% end %>
+  <%= render partial: 'errors/error_report', locals: {type: @team} %>
   <h4>New Team</h4>
   <%= label_tag :name %>
   <%= f.text_field :name, placeholder: "Channel Team" %>

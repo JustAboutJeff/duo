@@ -7,7 +7,6 @@ describe User do
   end
 
   it { should have_many(:teams) }
-  it { should have_many(:people) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
@@ -15,15 +14,15 @@ describe User do
   it { should allow_value("JohnDoe@gmail.com").for(:email) }
   it { should_not allow_value("short").for(:password) }
   it { should allow_value("properlength").for(:password) }
-  # TODO: add error handling and raise exception
+
   context "with invalid input" do
     it "should not save user to database when one or more fields are empty" do
-      expect{User.create(name: 'John')}.to raise_exception
+      User.create(name: 'John')
       expect(User.all.count).to eq(@count)
     end
-    # TODO: add error handling and raise exception
+
     it "should not create a user when email address is invalid format" do
-     expect{ User.create(name: "John", email: "bogus@a.c", password: "password")}.to raise_exception
+      User.create(name: "John", email: "bogus@a.c", password: "password")
       User.all.count.should eq(@count)
     end
 

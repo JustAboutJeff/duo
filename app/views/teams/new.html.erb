@@ -1,8 +1,9 @@
-<%= form_for @team, :url => user_teams_path(@user) do |f| %>
+<%= form_for @team do |f| %>
   <fieldset>
+  <%= render partial: 'errors/error_report', locals: {type: @team} %>
   <h4>New Team</h4>
   <%= label_tag :name %>
-  <%= f.text_field :name, placeholder: "Team name" %>
+  <%= f.text_field :name, placeholder: "Channel Team" %>
   <%= f.submit "Create Team" , class: "button tiny"%>
   </fieldset>
 <% end %>

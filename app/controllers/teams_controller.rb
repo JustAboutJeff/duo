@@ -9,23 +9,24 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @team = Team.new
+    if logged_in?
+      @team = Team.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    team = Team.new(params[:team])
-    if team.save
+    @team = Team.new(params[:team])
+    if @team.save
       redirect_to root_path
     else
-      # TODO: error handling
-      # @errors = team.errors
-      redirect_to new_user_team_path
+      render 'new'
     end
   end
 
   def destroy
     Team.destroy(params[:id])
-    redirec_to root_path
+    redirect_to root_path
   end
 end

@@ -11,18 +11,17 @@
       <!-- Nav Left Area -->
       <ul class="left">
         <% if logged_in? %>
-        <li><%= link_to 'People', new_user_person_path(current_user) %></li>
-        <li><%= link_to 'Teams', new_user_team_path(current_user) %></li>
+        <li><%= link_to 'Edit Teams', new_team_path %></li>
         <% end %>
       </ul>
       <!-- Nav Right Area -->
       <ul class="right">
         <% if logged_in? %>
         <li><a href="#"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
-        <li><%= link_to 'Logout', logout_path %></li>
+        <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to 'Login', login_path %></li>
-        <li><%= link_to 'Sign Up', new_user_path %></li>
+        <li><%= link_to 'Sign In', signin_path %></li>
+        <li><%= link_to 'Sign Up', signup_path %></li>
         <% end %>
       </ul>
     </section>

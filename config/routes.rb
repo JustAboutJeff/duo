@@ -1,6 +1,6 @@
 Duo::Application.routes.draw do
  # Root
-   root to: 'teams#index'
+   root to: 'sessions#index'
 
  # Users
    resources :users
@@ -9,7 +9,7 @@ Duo::Application.routes.draw do
    resources :teams
 
  # Sessions
-   resources :sessions, only: [:new, :create, :destroy]
+   resources :sessions
    match '/signup',   to: 'users#new'
    match '/signin',  to: 'sessions#new'
    match '/signout', to: 'sessions#destroy', via: :delete

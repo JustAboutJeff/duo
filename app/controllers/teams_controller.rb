@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_filter :authorized?
 
   def index
     @teams = Team.order("created_at DESC")
@@ -9,19 +10,15 @@ class TeamsController < ApplicationController
   end
 
   def new
-    if logged_in?
-      @team = Team.new
-    else
-      redirect_to root_path
-    end
+    @team = Team.new
   end
 
   def create
     @team = Team.new(params[:team])
     if @team.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
-      render 'new'
+      render 'new', notice: "Team created!"
     end
   end
 

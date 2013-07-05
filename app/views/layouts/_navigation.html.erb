@@ -17,7 +17,7 @@
       <!-- Nav Right Area -->
       <ul class="right">
         <% if logged_in? %>
-        <li><a href="#"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
+        <li><a href="/users/<%= current_user.id %>"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
         <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
         <% else %>
         <li><%= link_to 'Create User', signup_path %></li>

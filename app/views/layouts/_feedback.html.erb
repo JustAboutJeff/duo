@@ -1,7 +1,8 @@
 <% if flash.any? %>
-  <fieldset>
   <% flash.each do |key,msg| %>
-    <%= content_tag(:span, msg, class: "label alert#{key}") %>
+    <div data-alert class="alert-box">
+      <%= content_tag(:span, msg) %>
+      <a href="#" class="close">&times;</a>
+    </div>
   <% end %>
-  </fieldset>
 <% end %>

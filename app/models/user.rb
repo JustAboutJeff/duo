@@ -3,9 +3,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :password, :password_confirmation, :admin
 
-  has_many :teams_members
+  has_many :team_members
   has_many :teams, through: :team_members
-  # is admin boolean column
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
@@ -14,10 +13,9 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
-  before_save :get_gravatar_hash
+  before_save :get_gravatar_hash, :get_duo
 
   # scope :team_mates -> { joins(:team_members).where('user_id = ?'), self.id  }
-  # scope :team_mates, -> { joins(:teams).where('team_id: ?'), self.teams.id }
 
   private
 
@@ -27,5 +25,9 @@ class User < ActiveRecord::Base
 
   def validate_password?
     new_record? || password.present? || password_confirmation.present?
+  end
+
+  def get_duo
+    'TEST DUO' # self.duo = self.team_mates.all.sample.name
   end
 end

@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_filter :authorized?
 
   def index
-    @teams = Team.order("created_at DESC")
+    @teams = Team.all
   end
 
   def show
@@ -16,14 +16,14 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     if @team.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: "Team created!"
     else
-      render 'new', notice: "Team created!"
+      render 'new'
     end
   end
 
   def destroy
     Team.destroy(params[:id])
-    redirect_to root_path
+    redirect_to user_path(current_user), notice: "Team deleted!"
   end
 end

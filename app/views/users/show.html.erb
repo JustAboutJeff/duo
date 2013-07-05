@@ -1,13 +1,15 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
-    <div class="small-12 small-centered columns">
-      <img class='circle person' src="http://www.gravatar.com/avatar/<%= @user.gravatar_hash %>?s=150&d=mm">
+    <ul class="vcard">
+      <li><img class='circle person' src="http://www.gravatar.com/avatar/<%= @user.gravatar_hash %>?s=150&d=mm"></li>
+      <li class="fn"><%= @user.name %></li>
+      <li class="email"><small><%= mail_to @user.email %></li>
       <% if @teams.any? %>
         <% @teams.each do |team| %>
-          <span class="label secondary"><%= team.name %></span>
+          <li class="team"><small><%= team.name %></small></span>
         <% end %>
       <% end %>
-    </div>
+    </ul>
   </fieldset>
 </div>

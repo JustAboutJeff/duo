@@ -39,6 +39,9 @@ module Duo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # While precompiling assets, prevent initializing app and connecting to database
+    config.assets.initialize_on_precompile = false
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

@@ -1,9 +1,12 @@
-<%= form_for @team do |f| %>
+<div class="row">
   <fieldset>
-  <%= render partial: 'errors/error_report', locals: {type: @team} %>
-  <h4>New Team</h4>
-  <%= label_tag :name %>
-  <%= f.text_field :name, placeholder: "Channel Team" %>
-  <%= f.submit "Create Team" , class: "button tiny"%>
+    <%= render 'layouts/feedback' %>
+    <%= form_for @team do |f| %>
+      <%= render partial: 'errors/error_report', locals: {type: @team} %>
+      <h4>New Team</h4>
+      <%= label_tag :name %>
+      <%= f.text_field :name, placeholder: "Channel Team" %>
+      <%= f.submit "Create Team" , class: "button tiny"%>
+    <% end %>
   </fieldset>
-<% end %>
+</div>

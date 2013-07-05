@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :authorize
+  before_filter :authorized?
 
   def index
     @teams = Team.order("created_at DESC")
@@ -10,10 +10,7 @@ class TeamsController < ApplicationController
   end
 
   def new
-      @team = Team.new
-    else
-      redirect_to root_path
-    end
+    @team = Team.new
   end
 
   def create

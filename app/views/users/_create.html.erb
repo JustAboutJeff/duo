@@ -1,0 +1,13 @@
+<%= form_for agent, url: {action: "#{form_action}"}  do |f| %>
+  <%= render partial: 'errors/error_report', locals: {type: @user} %>
+  <h4><%= message %></h4>
+  <%= label_tag :name %>
+  <%= f.text_field :name, placeholder: "John" %>
+  <%= label_tag :email %>
+  <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
+  <%= label_tag :password %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= label_tag :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+  <%= f.submit "Create" , class: "button tiny"%>
+<% end %>

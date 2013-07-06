@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authorized?, :except => [:index, :show]
 
   def index
+    @user = User.new
     @users = User.all
     @teams = Team.all
   end
@@ -13,6 +13,16 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def build
+    @user = User.new(params[:user])
+    if @user.save
+      DuoMailer.duo_notify(@user).deliver
+      redirect_to users_path, notice: "User created!"
+    else
+      render 'index'
+    end
   end
 
   def create
@@ -27,7 +37,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.destroy(params[:id])
-    redirect_to user_path(current_user), notice: "User deleted!"
+    if session[:user_id] == params[:id].to_i
+      session[:user_id] = nil
+      User.destroy(params[:id])
+      redirect_to root_path, alert: "User deleted!"
+    else
+      User.destroy(params[:id])
+      redirect_to users_path, alert: "User deleted!"
+    end
   end
 end

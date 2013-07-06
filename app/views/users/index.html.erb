@@ -1,22 +1,26 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
-    <% if @users %>
+    <%= render partial: 'create', locals: {agent: @user, form_action: "build", message: "Create Person"} %>
+  </fieldset>
+  <% if @users %>
+    <fieldset>
+    <h4>Edit People</h4>
     <% @users.each do |user| %>
-      <div data-alert class="small-3 alert-box secondary columns">
+      <div class="small-4 columns ">
         <ul class="vcard">
           <li><img class='circle person' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=150&d=mm"></li>
           <li class="fn"><%= user.name %></li>
-          <li class="email"><small><%= mail_to user.email %></li>
+          <li class="email"><small><%= mail_to user.email %></small></li>
           <% if user.teams.any? %>
-          <% user.teams.each do |team| %>
-          <li class="team"><small><%= team.name %></small></span>
+            <% user.teams.each do |team| %>
+            <span class="team"><small><%= team.name %></small></span>
+            <% end %>
           <% end %>
-          <% end %>
+          <li><small><%= link_to 'DELETE', user_path(user), method: :delete, :confirm => 'Are you sure?', class: "button tiny alert" %></small></li>
         </ul>
-        <%= link_to 'x', user_path(user), method: :delete, class: "close" %>
       </div>
     <% end %>
-    <% end %>
-  </fieldset>
+    </fieldset>
+  <% end %>
 </div>

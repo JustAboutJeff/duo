@@ -3,7 +3,6 @@ class DuoMailer < ActionMailer::Base
 
   def duo_notify(user)
     @user = user
-
     mail to: user.email, subject: "Your Weekly IFTTT Duo"
   end
 end

@@ -1,8 +1,9 @@
 class TeamsController < ApplicationController
-  before_filter :authorized?
 
   def index
     @teams = Team.all
+    @team = Team.new
+    @users = User.all
   end
 
   def show
@@ -16,14 +17,24 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     if @team.save
-      redirect_to user_path(current_user), notice: "Team created!"
+      redirect_to teams_path, notice: "Team created!"
     else
-      render 'new'
+      render 'index'
     end
+  end
+
+  def repopulate
+    puts "PARAMS HERE"
+    puts params
+    @team = Team.find_by_id(params[:id])
+    @users = User.where(id: params[:users])
+    @team.users.clear
+    @team.users << @users
+    redirect_to teams_path, notice: "Team updated!"
   end
 
   def destroy
     Team.destroy(params[:id])
-    redirect_to user_path(current_user), notice: "Team deleted!"
+    redirect_to teams_path, alert: "Team deleted!"
   end
 end

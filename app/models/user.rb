@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   require 'digest'
 
-  attr_accessible :name, :email, :password, :password_confirmation, :admin
+  attr_accessible :name, :email, :password, :password_confirmation, :teams
 
   has_many :team_members
   has_many :teams, through: :team_members
@@ -13,9 +13,12 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
-  before_save :get_gravatar_hash, :get_duo
+  before_save :get_gravatar_hash
 
-  # scope :team_mates -> { joins(:team_members).where('user_id = ?'), self.id  }
+  def get_duo
+    return 'Test Double'
+    # User.get_team_members(self).sample.name
+  end
 
   private
 
@@ -27,7 +30,9 @@ class User < ActiveRecord::Base
     new_record? || password.present? || password_confirmation.present?
   end
 
-  def get_duo
-    'TEST DUO' # self.duo = self.team_mates.all.sample.name
+  def self.get_team_members(user)
+    team_ids = "SELECT team_id FROM team_members WHERE team_members.user_id = #{user.id}"
+    user_ids = "SELECT user_id FROM team_members WHERE team_members.team_id IN (#{team_ids})"
+    where("users.id IN (#{user_ids}) AND users.id != #{user.id}")
   end
 end

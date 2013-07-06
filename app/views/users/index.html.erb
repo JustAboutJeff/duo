@@ -1,20 +1,36 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
+    <%= form_for @user, url: {action: "build"}  do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @user} %>
+    <h4>Create User</h4>
+      <%= label_tag :name %>
+      <%= f.text_field :name, placeholder: "John" %>
+      <%= label_tag :email %>
+      <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
+      <%= label_tag :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= label_tag :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+      <%= f.submit "Create" , class: "button tiny"%>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <h4>View + Delete Users</h4>
     <% if @users %>
     <% @users.each do |user| %>
-      <div data-alert class="small-3 alert-box secondary columns">
+      <div class="small-4 columns ">
         <ul class="vcard">
           <li><img class='circle person' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=150&d=mm"></li>
           <li class="fn"><%= user.name %></li>
-          <li class="email"><small><%= mail_to user.email %></li>
+          <li class="email"><small><%= mail_to user.email %></small></li>
           <% if user.teams.any? %>
-          <% user.teams.each do |team| %>
-          <li class="team"><small><%= team.name %></small></span>
+            <% user.teams.each do |team| %>
+            <span class="team"><small><%= team.name %></small></span>
+            <% end %>
           <% end %>
-          <% end %>
+          <li><small><%= link_to 'DELETE', user_path(user), method: :delete, :confirm => 'Are you sure?' %></small>
         </ul>
-        <%= link_to 'x', user_path(user), method: :delete, class: "close" %>
       </div>
     <% end %>
     <% end %>

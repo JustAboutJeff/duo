@@ -10,13 +10,14 @@
     <section class="top-bar-section">
       <!-- Nav Left Area -->
       <ul class="left">
-        <% if authorized? %>
-        <li><%= link_to 'Admin Panel', new_team_path %></li>
+        <% if current_user %>
+        <li><%= link_to 'People', users_path %></li>
+        <li><%= link_to 'Teams', teams_path %></li>
         <% end %>
       </ul>
       <!-- Nav Right Area -->
       <ul class="right">
-        <% if logged_in? %>
+        <% if current_user %>
         <li><a href="/users/<%= current_user.id %>"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
         <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
         <% else %>

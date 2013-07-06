@@ -12,10 +12,6 @@
       <%= f.password_field :password, placeholder: "Password" %>
       <%= label_tag :password_confirmation %>
       <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-      <fieldset>
-      <%= label_tag :admin, "Administrator?" %>
-      <%= check_box_tag "user[admin]", true, false %>
-      </fieldset>
       <%= f.submit "Create" , class: "button tiny"%>
     <% end %>
   </fieldset>

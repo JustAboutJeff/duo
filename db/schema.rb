@@ -27,14 +27,12 @@ ActiveRecord::Schema.define(:version => 20130629124426) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",                               :null => false
-    t.string   "email",                              :null => false
-    t.string   "gravatar_hash",                      :null => false
-    t.string   "password_digest",                    :null => false
-    t.boolean  "admin",           :default => false, :null => false
-    t.string   "duo"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "name",            :null => false
+    t.string   "email",           :null => false
+    t.string   "gravatar_hash",   :null => false
+    t.string   "password_digest", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

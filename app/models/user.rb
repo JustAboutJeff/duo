@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   require 'digest'
 
-  attr_accessible :name, :email, :password, :password_confirmation, :admin
+  attr_accessible :name, :email, :password, :password_confirmation, :teams
 
   has_many :team_members
   has_many :teams, through: :team_members
@@ -12,10 +12,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
   validates :password_confirmation, presence: true, :if => :validate_password?
 
-  # scope :team_mates, ->(user) { where("team_id = ?", user.id) }
-
   has_secure_password
-  before_save :get_gravatar_hash, :get_duo
+  before_save :get_gravatar_hash
 
   private
 
@@ -28,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def get_duo
-    'TEST DUO' # self.duo = self.team_mates.all.sample.name
+    self.duo = self.team_mates.all.sample.name
   end
 
   def self.get_team_members(user)

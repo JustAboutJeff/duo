@@ -6,8 +6,4 @@ module ApplicationHelper
   def logged_in?
     !current_user.nil?
   end
-
-  def authorized?
-    logged_in? && current_user.admin == true
-  end
 end

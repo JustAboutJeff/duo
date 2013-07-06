@@ -1,8 +1,9 @@
 class TeamsController < ApplicationController
-  before_filter :authorized?
 
   def index
     @teams = Team.all
+    @team = Team.new
+    @users = User.all
   end
 
   def show

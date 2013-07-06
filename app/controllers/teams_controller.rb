@@ -17,14 +17,20 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     if @team.save
-      redirect_to users_path, notice: "Team created!"
+      redirect_to teams_path, notice: "Team created!"
     else
       render 'index'
     end
   end
 
+  def update
+    @team = Team.find(params[:id])
+    @team.update_attributes
+    redirect to teams_path, notice: "Team updated!"
+  end
+
   def destroy
     Team.destroy(params[:id])
-    redirect_to user_path(current_user), notice: "Team deleted!"
+    redirect_to teams_path, notice: "Team deleted!"
   end
 end

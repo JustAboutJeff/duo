@@ -3,7 +3,7 @@
     <%= render 'layouts/feedback' %>
     <%= form_for @team do |f| %>
       <%= render partial: 'errors/error_report', locals: {type: @team} %>
-      <h4>New Team</h4>
+      <h4>Create Team</h4>
       <%= label_tag :name %>
       <%= f.text_field :name, placeholder: "Channel Team" %>
       <%= f.submit "Create Team" , class: "button tiny"%>
@@ -12,7 +12,24 @@
   <% if @teams %>
     <fieldset>
     <h4>Edit Teams</h4>
-
+    <% @teams.each do |team| %>
+      <div class="small-6 columns">
+        <ul class="vcard small-12 columns">
+          <li class="fn"><%= team.name %></li>
+          <%= form_for team do |f| %>
+            <% @users.each do |user| %>
+              <% if team.users.include?(user) %>
+                <li><%= check_box_tag(user.name, user.id, checked = true) %> <%= user.name %></li>
+              <% else %>
+                <li><%= check_box_tag(user.name, user.id, checked = false) %> <%= user.name %></li>
+              <% end %>
+            <% end %>
+            <%= f.submit "Update" , class: "button tiny"%>
+            <%= link_to 'Delete', team_path(team), method: :delete, :confirm => 'Are you sure?', class: 'button tiny alert' %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     </fieldset>
   <% end %>
 </div>

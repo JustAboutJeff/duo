@@ -37,7 +37,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.destroy(params[:id])
-    redirect_to users_path, notice: "User deleted!"
+    if session[:user_id] == params[:id].to_i
+      session[:user_id] = nil
+      User.destroy(params[:id])
+      redirect_to root_path, alert: "User deleted!"
+    else
+      User.destroy(params[:id])
+      redirect_to users_path, notice: "User deleted!"
+    end
   end
 end

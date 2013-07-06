@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   before_save :get_gravatar_hash
 
   def get_duo
-    User.get_team_members(self).sample.name
+    User.get_team_members(self).sample
   end
 
   private

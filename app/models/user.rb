@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :team_members
   has_many :teams, through: :team_members
+  belongs_to :partner, class_name: 'User'
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
@@ -15,9 +16,11 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :get_gravatar_hash
 
-  def get_duo
-    return 'Test Double'
-    # User.get_team_members(self).sample.name
+  def set_partner(partner)
+    self.partner = partner
+    partner.partner = self
+    self.save
+    partner.save
   end
 
   private
@@ -28,11 +31,5 @@ class User < ActiveRecord::Base
 
   def validate_password?
     new_record? || password.present? || password_confirmation.present?
-  end
-
-  def self.get_team_members(user)
-    team_ids = "SELECT team_id FROM team_members WHERE team_members.user_id = #{user.id}"
-    user_ids = "SELECT user_id FROM team_members WHERE team_members.team_id IN (#{team_ids})"
-    where("users.id IN (#{user_ids}) AND users.id != #{user.id}")
   end
 end

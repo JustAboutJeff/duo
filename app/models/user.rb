@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
   validates :password_confirmation, presence: true, :if => :validate_password?
 
+  # scope :team_mates, ->(user) { where("team_id = ?", user.id) }
+
   has_secure_password
   before_save :get_gravatar_hash, :get_duo
-
-  # scope :team_mates -> { joins(:team_members).where('user_id = ?'), self.id  }
 
   private
 
@@ -29,5 +29,11 @@ class User < ActiveRecord::Base
 
   def get_duo
     'TEST DUO' # self.duo = self.team_mates.all.sample.name
+  end
+
+  def self.get_team_members(user)
+    team_ids = "SELECT team_id FROM team_members WHERE team_members.user_id = #{user.id}"
+    user_ids = "SELECT user_id FROM team_members WHERE team_members.team_id IN (#{team_ids})"
+    where("users.id IN (#{user_ids}) AND users.id != #{user.id}")
   end
 end

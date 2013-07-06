@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :get_gravatar_hash
 
+  def get_duo
+    User.get_team_members(self).sample.name
+  end
+
   private
 
   def get_gravatar_hash
@@ -23,10 +27,6 @@ class User < ActiveRecord::Base
 
   def validate_password?
     new_record? || password.present? || password_confirmation.present?
-  end
-
-  def get_duo
-    self.duo = self.team_mates.all.sample.name
   end
 
   def self.get_team_members(user)

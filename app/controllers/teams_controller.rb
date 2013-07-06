@@ -17,9 +17,9 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     if @team.save
-      redirect_to user_path(current_user), notice: "Team created!"
+      redirect_to users_path, notice: "Team created!"
     else
-      render 'new'
+      render 'index'
     end
   end
 

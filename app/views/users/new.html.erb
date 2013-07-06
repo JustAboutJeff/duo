@@ -1,22 +1,6 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
-    <%= form_for @user do |f| %>
-    <%= render partial: 'errors/error_report', locals: {type: @user} %>
-    <h4>Create User</h4>
-      <%= label_tag :name %>
-      <%= f.text_field :name, placeholder: "John" %>
-      <%= label_tag :email %>
-      <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
-      <%= label_tag :password %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <%= label_tag :password_confirmation %>
-      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-      <fieldset>
-      <%= label_tag :admin, "Administrator?" %>
-      <%= check_box_tag "user[admin]", true, false %>
-      </fieldset>
-      <%= f.submit "Create" , class: "button tiny"%>
-    <% end %>
+    <%= render partial: 'create', locals: {agent: @user, form_action: "create", message: "Sign Up"} %>
   </fieldset>
 </div>

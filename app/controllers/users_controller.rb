@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       redirect_to root_path, alert: "User deleted!"
     else
       User.destroy(params[:id])
-      redirect_to users_path, notice: "User deleted!"
+      redirect_to users_path, alert: "User deleted!"
     end
   end
 end

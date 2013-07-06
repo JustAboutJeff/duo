@@ -23,14 +23,18 @@ class TeamsController < ApplicationController
     end
   end
 
-  def update
-    @team = Team.find(params[:id])
-    @team.update_attributes
-    redirect to teams_path, notice: "Team updated!"
+  def repopulate
+    puts "PARAMS HERE"
+    puts params
+    @team = Team.find_by_id(params[:id])
+    @users = User.where(id: params[:users])
+    @team.users.clear
+    @team.users << @users
+    redirect_to teams_path, notice: "Team updated!"
   end
 
   def destroy
     Team.destroy(params[:id])
-    redirect_to teams_path, notice: "Team deleted!"
+    redirect_to teams_path, alert: "Team deleted!"
   end
 end

@@ -10,18 +10,18 @@
     <section class="top-bar-section">
       <!-- Nav Left Area -->
       <ul class="left">
-        <% if current_user %>
+        <% if logged_in? %>
         <li><%= link_to 'People', users_path %></li>
         <li><%= link_to 'Teams', teams_path %></li>
         <% end %>
       </ul>
       <!-- Nav Right Area -->
       <ul class="right">
-        <% if current_user %>
+        <% if logged_in? %>
         <li><a href="/users/<%= current_user.id %>"><%= current_user.name %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
         <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to 'Create User', signup_path %></li>
+        <li><%= link_to 'Sign Up', signup_path %></li>
         <li><%= link_to 'Sign In', signin_path %></li>
         <% end %>
       </ul>

@@ -16,15 +16,15 @@
       <div class="small-6 columns">
         <ul class="vcard small-12 columns">
           <li class="fn"><%= team.name %></li>
-          <%= form_for team do |f| %>
+          <%= form_tag(controller: "teams", action:"repopulate", id: team.id) do |f| %>
             <% @users.each do |user| %>
               <% if team.users.include?(user) %>
-                <li><%= check_box_tag(user.name, user.id, checked = true) %> <%= user.name %></li>
+                <li><%= check_box_tag "users[]", user.id, true %> <%= user.name %></li>
               <% else %>
-                <li><%= check_box_tag(user.name, user.id, checked = false) %> <%= user.name %></li>
+                <li><%= check_box_tag "users[]", user.id, false %> <%= user.name %></li>
               <% end %>
             <% end %>
-            <%= f.submit "Update" , class: "button tiny"%>
+            <%= submit_tag "Update", class: "button tiny"%>
             <%= link_to 'Delete', team_path(team), method: :delete, :confirm => 'Are you sure?', class: 'button tiny alert' %>
           <% end %>
         </ul>

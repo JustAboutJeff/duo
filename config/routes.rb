@@ -8,6 +8,7 @@ Duo::Application.routes.draw do
 
  # Teams
    resources :teams
+   post '/teams/:id/repopulate', to: 'teams#repopulate', as: :repopulate_team
 
  # Sessions
    resources :sessions

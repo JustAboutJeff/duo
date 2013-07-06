@@ -1,23 +1,11 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
-    <%= form_for @user, url: {action: "build"}  do |f| %>
-    <%= render partial: 'errors/error_report', locals: {type: @user} %>
-    <h4>Create User</h4>
-      <%= label_tag :name %>
-      <%= f.text_field :name, placeholder: "John" %>
-      <%= label_tag :email %>
-      <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
-      <%= label_tag :password %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <%= label_tag :password_confirmation %>
-      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-      <%= f.submit "Create" , class: "button tiny"%>
-    <% end %>
+    <%= render partial: 'create', locals: {agent: @user, form_action: "build", message: "Create Person"} %>
   </fieldset>
   <% if @users %>
     <fieldset>
-    <h4>Edit Users</h4>
+    <h4>Edit People</h4>
     <% @users.each do |user| %>
       <div class="small-4 columns ">
         <ul class="vcard">

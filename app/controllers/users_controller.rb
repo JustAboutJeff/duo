@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  require 'duo_calculator'
 
   def index
     @user = User.new

@@ -13,8 +13,8 @@
     <fieldset>
     <h4>Edit Teams</h4>
     <% @teams.each do |team| %>
-      <div class="small-6 columns">
-        <ul class="vcard small-12 columns">
+      <div class="large-6 columns">
+        <ul class="vcard large-12 columns">
           <li class="fn"><%= team.name %></li>
           <%= form_tag(controller: "teams", action:"repopulate", id: team.id) do |f| %>
             <% @users.each do |user| %>

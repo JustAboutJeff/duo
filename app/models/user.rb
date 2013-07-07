@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   require 'digest'
 
-  attr_accessible :name, :email, :password, :password_confirmation, :teams
+  attr_accessible :name, :email, :password, :password_confirmation, :partner_id
 
   has_many :team_members
   has_many :teams, through: :team_members
@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :get_gravatar_hash
 
-  def set_partner(partner)
-    self.partner = partner
-    partner.partner = self
-    self.save
-    partner.save
+  # This method is a patch for building a self-referential
+  # and cyclical relationship on the user model.
+  def set_partner(pair)
+    self.partner = pair
+    pair.partner = self
   end
 
   private

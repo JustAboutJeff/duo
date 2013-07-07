@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   def build
     @user = User.new(params[:user])
     if @user.save
-      DuoMailer.duo_notify(@user).deliver
       redirect_to users_path, notice: "User created!"
     else
       render 'index'
@@ -28,7 +27,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      DuoMailer.duo_notify(@user).deliver
       session[:user_id] = @user.id
       redirect_to user_path(current_user), notice: "User created!"
     else

@@ -5,9 +5,9 @@ class DuoCalculator
 
 # needs to select available team members that have not yet been assigned?
   def get_partner
-    @pair = self.get_team_members.sample
-    @user.set_partner(@pair)
-    @pair
+    partner = self.get_team_members.sample
+    @user.set_partner(partner)
+    partner
   end
 
   def get_team_members
@@ -17,7 +17,7 @@ class DuoCalculator
   end
 
   # This method isn't ideal. It has the issue that for odd numbered teams the last user will
-  # not recieve a pairing assignment. However, the loop will kick out and prevent infinite.
+  # not recieve a pairing assignment. However, the loop will kick out and prevent an infinite run.
   def self.get_duos
     users = User.all
     while users.count > 0
@@ -25,6 +25,8 @@ class DuoCalculator
       myCalc = DuoCalculator.new(user)
       partner = myCalc.get_partner
       users.delete(partner)
+      DuoMailer.duo_notify(user).deliver
+      DuoMailer.duo_notify(partner).deliver
     end
   end
 end

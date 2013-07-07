@@ -18,8 +18,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
+require 'duo_calculator'
 
 every :friday, :at => '5pm' do
-  runner "DuoCalculator.getDuos"
+  runner "DuoCalculator.get_duos"
 end

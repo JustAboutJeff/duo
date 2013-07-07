@@ -17,6 +17,9 @@
 # Ignore config yaml
 /config/config.yml
 
-# Ignore ruby version and gemset
-/.ruby-gemset
-/.ruby-version
+# Ignore ruby version and gemset config files
+/*.ruby-gemset
+/*.ruby-version
+
+# Ignore rspec config file
+/*.rpsec

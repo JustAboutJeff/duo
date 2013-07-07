@@ -2,7 +2,7 @@
   <%= render partial: 'errors/error_report', locals: {type: @user} %>
   <h4><%= message %></h4>
   <%= label_tag :name %>
-  <%= f.text_field :name, placeholder: "John" %>
+  <%= f.text_field :name, placeholder: "John", autofocus: true %>
   <%= label_tag :email %>
   <%= f.email_field :email, placeholder: "JohnDoe@example.com" %>
   <%= label_tag :password %>

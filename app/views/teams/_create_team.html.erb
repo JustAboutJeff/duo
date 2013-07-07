@@ -1,0 +1,10 @@
+<fieldset>
+  <%= render 'layouts/feedback' %>
+  <%= form_for @team do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @team} %>
+    <h4>Create Team</h4>
+    <%= label_tag :name %>
+    <%= f.text_field :name, placeholder: "Channel Team", autofocus: true %>
+    <%= f.submit "Create Team" , class: "button tiny"%>
+  <% end %>
+</fieldset>

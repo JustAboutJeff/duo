@@ -24,8 +24,6 @@ class TeamsController < ApplicationController
   end
 
   def repopulate
-    puts "PARAMS HERE"
-    puts params
     @team = Team.find_by_id(params[:id])
     @users = User.where(id: params[:users])
     @team.users.clear

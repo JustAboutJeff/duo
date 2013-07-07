@@ -12,6 +12,9 @@ gem 'pg'
 # jquery
 gem 'jquery-rails'
 
+# whenever for job scheduling
+gem 'whenever', :require => false
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 

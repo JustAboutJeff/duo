@@ -113,6 +113,7 @@ Thanks to IFTTT for providing an interesting problem to dive into. I learned a g
 
 - Finalize the pairs model feature branch and algorithm
 - Implement AJAX handling for the form submissions
+- Set up an admin area for CRUD actions with simple HTTP authentication
 - Identify opportunities to use rails 'eager loading' to speed up db queries
 
 ===

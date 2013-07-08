@@ -97,7 +97,11 @@ To handle the pairing logic, I constructed a DuoCalculator class in the lib dire
 
 To test Duo I wrote a number of specs using rspec (alongside shoulda, and factorygirl) for the controller actions and routes, models and assocations, and mailer and lib classes. I focused on unit testing and plan to write some good integration tests using capybara in the future. Frankly, I would have loved to test this app more thoughourly, especially the pairing logic within the DuoCalculator class as I enjoy the 'reverse-engineering' that takes place when writing solid, effective tests.
 
-Please check out the spec directory within the application directory to view some of the tests I wrote or run the following command from the terminal within the app directory to run the tests:
+Please check out the spec folder within the application directory to view some of the tests that I wrote. To execute the tests you may need to first setup a testing environment by using the following terminal command:
+
+    $ rake db:test:prepare
+
+Once your testing environment is ready run the specs from the terminal within the app directory:
 
 		$ rspec spec -fn
 

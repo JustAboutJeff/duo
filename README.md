@@ -1,8 +1,7 @@
 #DUO
-===
 
-> **Duo** is a web application built to bring us together. Let's pai
- 
+> **Duo** is a web application built to bring us together. Let's pair
+
 - Inspired by: [IFTTT](https://ifttt.com/)
 - Created by: **Jeff Belser** [@JustAboutJeff](http://www.twitter.com/justaboutjeff)
 
@@ -10,7 +9,9 @@
 
 Duo is a web application built to help teams connect across a single organization. Organizations are filled with people and teams, associated in a many-to-many relationship.
 
-Duo allows you to create and delete people, create and delete teams, and insert and remove people from teams. Often a person will belong to many different teams, having teammates across the organization. Every Friday at 5pm Duo generates a new pairing notification for each person by selecting from their available teammates. An individualized pairing notificaion is shared via email to each person in the organization.
+Duo allows you to create and delete people, create and delete teams, and insert and remove people from teams. Often a person will belong to many different teams, having teammates across the organization.
+
+Every Friday at 5pm Duo generates a new pairing notification for each person by selecting from their available teammates. An individualized pairing notificaion is shared via email to each person in the organization.
 
 **So to recap:**
 
@@ -41,10 +42,10 @@ Every Friday at 5:00PM, Duo delivers an email to each person with their pair ass
 - Navigate to the application directoy in terminal and run **bundle install** to gather your gems:
 
 		$ bundle install
-		
+
 - Depending on your development environment, you may need to edit and save out the **.ruby-gemset.sample** and **.ruby-version.sample** files provided within the application directory. Save these without the .sample filetype into your app directory to control the gemset and ruby version.
 
-- Within the app's config directory open the **config.example.yaml** file and define the application token and mailer usernames and passwords for your local configuration. Save a new copy as **config.yaml**. Check the config/environments directory to view the settings these environment variables control: 
+- Within the app's config directory open the **config.example.yaml** file and define the application token and mailer usernames and passwords for your local configuration. Save a new copy as **config.yaml**. Check the config/environments directory to view the settings these environment variables control:
 
 		GMAIL_USERNAME: 'example'
 		GMAIL_PASSWORD: 'example'
@@ -67,7 +68,7 @@ Every Friday at 5:00PM, Duo delivers an email to each person with their pair ass
 
 Once you have the application up and running you can **Sign Up** to create a new user or **Sign In** with an existing user. Try a few of the IFTTT employees as their emails as they have been provided within the seed file:
 
-email: **linden@ifttt.com**  
+email: **linden@ifttt.com**
 password: **password**
 
 Once logged in you will arrive at your **user page** which displays a photo sourced from the gravatar api, your user name and the teams that you are currently assigned to. Using the top navigation, click the **People** or **Teams** links to begin editing the organization.

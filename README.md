@@ -39,7 +39,7 @@ Every Friday at 5:00PM, Duo delivers an email to each person with their pair ass
 
 		$ git clone https://github.com/JustAboutJeff/duo.git
 
-- Navigate to the application directoy in terminal and run **bundle install** to gather your gems:
+- Navigate to the application directoy in terminal and run **bundle install** to gather the required gems:
 
 		$ bundle install
 
@@ -87,7 +87,11 @@ To design this app I had to first break down the data models and their underlyin
 
 On the Users table things got interesting when creating the logic for the pair assignments. I built out a solution using a belongs_to self referential association to a partner_id. I had to create an instance method helper (set_partner) to create a cyclical relationship on the user's pair as well. Before submitting the app I began to try another approach on a feature branch where I stored the pairing history in a seperate Pairs table associated to the Users table in a has_many relation. The Pairs table could allow me to refine my pairing algorithm by tracking the frequency of pairing relationships between users and track the 'last partner' to prevent a back to back pair assignment with the same person.
 
+- Find the Pairs model feature branch on github [here](https://github.com/JustAboutJeff/duo/pull/30).
+
 To handle the pairing logic, I constructed a DuoCalculator class in the lib directory. I attempted to abstract as much of the logic for building relationships between users into this class as possible. The 'get_duos' method is wrapped in a whenever gem task to run every friday at 5pm, sending pair assignment emails out to everyone in the organization based on the algorithm.
+
+- Find the DuoCalculator class on github [here](https://github.com/JustAboutJeff/duo/blob/master/lib/duo_calculator.rb)
 
 ##Testing
 
@@ -101,7 +105,11 @@ Outside of formal specs, I tested the app across a number of different browsers 
 
 ##Final Thoughts
 
-Thanks to IFTTT for providing an interesting problem to dive into. I learned a great deal working with the active record self-referential associations and had a blast building out a responsive UI with the Zurb Foundation framework. There were a number of interesting challenges that surfaced while I was working on the app. While I didn't know the perfect solution in every case, I enjoyed researching the issues, asking questions, and testing my solutions. I can already see where this app could be improved and optimized in the future. Something that I'll enjoy hacking on in the comming weeks.
+Thanks to IFTTT for providing an interesting problem to dive into. I learned a great deal working with the active record self-referential associations and had a blast building out a responsive UI with the Zurb Foundation framework. There were a number of interesting challenges that surfaced while I was working on the app. While I didn't know the perfect solution in every case, I enjoyed researching the issues, asking questions, and testing my solutions. I can already see where this app could be improved and optimized in the future. A few things I'm exctied to work on next:
+
+- Finalize the pairs model feature branch and algorithm
+- Implement AJAX handling for the form submissions
+- Identify opportunities to use rails 'eager loading' to speed up db queries
 
 ===
 

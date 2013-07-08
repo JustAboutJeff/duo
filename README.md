@@ -66,14 +66,14 @@ Every Friday at 5:00PM, Duo delivers an email to each person with their pair ass
 
 ##Usage
 
-Once you have the application up and running you can **Sign Up** to create a new user or **Sign In** with an existing user. Try a few of the IFTTT employees as their emails as they have been provided within the seed file:
+Once you have the application up and running you can **Sign Up** to create a new user or **Sign In** with an existing user. Try a few of the IFTTT employees and their emails as they have been provided within the seed file:
 
-email: **linden@ifttt.com**
-password: **password**
+- email: **linden@ifttt.com**
+- password: **password**
 
 Once logged in you will arrive at your **user page** which displays a photo sourced from the gravatar api, your user name and the teams that you are currently assigned to. Using the top navigation, click the **People** or **Teams** links to begin editing the organization.
 
-On the **People page**, you can view a snapshot of the current people and their teams, delete people, and create new people using the form at the top of the page.
+On the **People page**, you can view a snapshot of the current people and their teams, delete people, and build new people using the form at the top of the page.
 
 On the **Teams page**, you can view the existing teams and their assigned people, update the roster of each team using the checkboxes and submit button, delete teams, or create new teams using the form at the top of the page.
 

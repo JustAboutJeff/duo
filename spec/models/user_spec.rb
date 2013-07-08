@@ -27,8 +27,8 @@ describe User do
     end
 
     it "should not create a user if name/email is already taken" do
-      expect{FactoryGirl.create(:user)}.to_not raise_exception
-      expect{FactoryGirl.create(:user)}.to raise_exception
+      expect{FactoryGirl.create(:user, email: "johndoe@example.com")}.to_not raise_exception
+      expect{FactoryGirl.create(:user, email: "johndoe@example.com")}.to raise_exception
     end
   end
 

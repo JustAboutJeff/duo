@@ -1,18 +1,19 @@
 Duo::Application.routes.draw do
+ # Sessions
+   get '/signup',  to: 'users#new'
+   get '/signin',  to: 'sessions#new'
+   delete '/signout', to: 'sessions#destroy'
+
  # Root
    root to: 'sessions#index'
 
  # Users
-   resources :users
-   match '/users/build', to: 'users#build'
+   resources :users do
+     post :build, on: :collection
+   end
 
  # Teams
    resources :teams
    post '/teams/:id/repopulate', to: 'teams#repopulate', as: :repopulate_team
-
- # Sessions
-   resources :sessions
-   match '/signup',  to: 'users#new'
-   match '/signin',  to: 'sessions#new'
-   match '/signout', to: 'sessions#destroy', via: :delete
 end
+

@@ -17,8 +17,8 @@ describe Team do
     end
 
     it "should not create a user if name/email is already taken" do
-      expect{FactoryGirl.create(:team)}.to_not raise_exception
-      expect{FactoryGirl.create(:team)}.to raise_exception
+      expect{FactoryGirl.create(:team, name: "example")}.to_not raise_exception
+      expect{FactoryGirl.create(:team, name: "example")}.to raise_exception
     end
   end
 

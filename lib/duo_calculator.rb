@@ -3,13 +3,18 @@ class DuoCalculator
     @user = user
   end
 
-# needs to select available team members that have not yet been assigned?
+  # To improve this method I need to select from the available team
+  # members only those users who have not yet been assigned a partner.
   def get_partner
     partner = self.get_team_members.sample
     @user.set_partner(partner)
     partner
   end
 
+  # I know there is a more 'railsy' way to accomplish this db query. Something like:
+  # team_ids = TeamMember.where(user_id: @user.id).pluck(:team_id)
+  # user_ids = TeamMember.where(team_id: team_ids).pluck(:user_id)
+  # User.where(id: user_ids, "id NOT #{@user.id}") ? not sure if that's correct syntactically
   def get_team_members
     team_ids = "SELECT team_id FROM team_members WHERE team_members.user_id = #{@user.id}"
     user_ids = "SELECT user_id FROM team_members WHERE team_members.team_id IN (#{team_ids})"

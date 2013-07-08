@@ -1,20 +1,24 @@
 class UsersController < ApplicationController
 
+  # GET /users
   def index
     @user = User.new
     @users = User.all
     @teams = Team.all
   end
 
+  # GET /users/:id
   def show
     @user = User.find(params[:id])
     @teams = @user.teams
   end
 
+  # GET /users/new
   def new
     @user = User.new
   end
 
+  # POST /users/build
   def build
     @user = User.new(params[:user])
     if @user.save
@@ -24,6 +28,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /users
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -34,6 +39,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # DELETE /users/:id
   def destroy
     if session[:user_id] == params[:id].to_i
       session[:user_id] = nil

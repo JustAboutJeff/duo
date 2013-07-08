@@ -14,6 +14,12 @@ describe SessionsController do
     end
   end
 
+  describe "POST /signin" do
+    it 'routes to sessions#create' do
+      post('/signin').should route_to(controller: 'sessions', action: 'create')
+    end
+  end
+
   describe "DELETE /signout" do
     it 'routes to sessions#destroy' do
       delete('/signout').should route_to(controller: 'sessions', action: 'destroy')

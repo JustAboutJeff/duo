@@ -1,17 +1,13 @@
 class TeamsController < ApplicationController
 
+  # GET /teams
   def index
     @teams = Team.all
     @team = Team.new
     @users = User.all
   end
 
-  def show
-  end
-
-  def new
-  end
-
+  # POST /teams
   def create
     @team = Team.new(params[:team])
     if @team.save
@@ -21,6 +17,7 @@ class TeamsController < ApplicationController
     end
   end
 
+  # POST /teams/:id/repopulate
   def repopulate
     @team = Team.find_by_id(params[:id])
     @users = User.where(id: params[:users])
@@ -29,6 +26,7 @@ class TeamsController < ApplicationController
     redirect_to teams_path, notice: "Team updated!"
   end
 
+  # DELETE /teams/:id
   def destroy
     Team.destroy(params[:id])
     redirect_to teams_path, alert: "Team deleted!"

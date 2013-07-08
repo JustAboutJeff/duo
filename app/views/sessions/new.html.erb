@@ -1,7 +1,7 @@
 <div class="row">
   <fieldset>
     <%= render 'layouts/feedback' %>
-    <%= form_for :session, url: sessions_path do |f| %>
+    <%= form_for :session do |f| %>
       <h4>Sign In</h4>
       <%= label_tag :email %>
       <%= f.email_field :email, placeholder: "JohnDoe@example.com", autofocus: true %>

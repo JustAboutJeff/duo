@@ -8,6 +8,7 @@ task :notify_duos => :environment do
     DuoCalculator.get_duos
     puts "complete."
   end
+end
 
 task :notify_jeff => :environment do
   if Time.now.monday?

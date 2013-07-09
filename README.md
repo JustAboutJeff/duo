@@ -1,4 +1,4 @@
-![DUO](http://i.minus.com/ikKYT2nqvxWdY.png "DUO" target="http://duopair.herokuapp.com")
+![DUO](http://i.minus.com/ikKYT2nqvxWdY.png "DUO")
 
 > **Duo** is a web application built to bring us together. Let's pair
 

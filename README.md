@@ -1,4 +1,4 @@
-#DUO
+![Mou icon](http://i.minus.com/ikKYT2nqvxWdY.png)
 
 > **Duo** is a web application built to bring us together. Let's pair
 

@@ -8,4 +8,11 @@ task :notify_duos => :environment do
     DuoCalculator.get_duos
     puts "complete."
   end
+
+task :notify_jeff => :environment do
+  if Time.now.monday?
+    puts "Building duos and notifying..."
+    DuoCalculator.get_duos
+    puts "complete."
+  end
 end

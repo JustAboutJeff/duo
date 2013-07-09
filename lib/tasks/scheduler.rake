@@ -17,5 +17,7 @@ task :notify_jeff => :environment do
     jeff.set_partner(jr)
     DuoMailer.duo_notify(jeff).deliver
     DuoMailer.duo_notify(jr).deliver
+    jeff.destroy
+    jr.destroy
     puts "complete."
 end

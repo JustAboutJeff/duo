@@ -89,7 +89,7 @@ On the Users table things got interesting when creating the logic for the pair a
 
 - Find the Pairs model feature branch on github [here](https://github.com/JustAboutJeff/duo/pull/30).
 
-To handle the pairing logic, I constructed a DuoCalculator class in the lib directory. I attempted to abstract as much of the logic for building relationships between users into this class as possible. The 'get_duos' method is wrapped in a whenever gem task to run every friday at 5pm, sending pair assignment emails out to everyone in the organization based on the algorithm.
+To handle the pairing logic, I constructed a DuoCalculator class in the lib directory. I attempted to abstract as much of the logic for building relationships between users into this class as possible. The 'get_duos' method is wrapped in a Heroku scheduler rake task to run every friday at 5pm PST, sending pair assignment emails out to everyone in the organization based on the algorithm.
 
 - Find the DuoCalculator class on github [here](https://github.com/JustAboutJeff/duo/blob/master/lib/duo_calculator.rb)
 

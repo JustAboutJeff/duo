@@ -35,15 +35,15 @@ Every Friday at 5:00PM PST Duo delivers an email to each person with their pair 
 
 ##Install
 
-- Fork the gist and clone the repo onto your local machine:
+- Fork the repo and clone onto your local machine:
 
 		$ git clone https://github.com/JustAboutJeff/duo.git
 
-- Navigate to the application directoy in terminal and run **bundle install** to gather the required gems:
+- Navigate to the application directoy in your terminal and run **bundle install** to gather the required gems:
 
 		$ bundle install
 
-- Depending on your development environment, you may need to edit and save out the **.ruby-gemset.sample** and **.ruby-version.sample** files provided within the application directory. Save these without the .sample filetype into your app directory to control the gemset and ruby version.
+- Depending on your specific development environment, you may need to edit and save out a **.ruby-gemset.sample** and/or **.ruby-version.sample** file(s) provided within the application directory. Save these without the .sample filetype into the main application directory to control the gemset and ruby version.
 
 - Within the app's config directory open the **config.example.yaml** file and define the application token and mailer usernames and passwords for your local configuration. Save a new copy as **config.yaml**. Check the config/environments directory to view the settings these environment variables control:
 

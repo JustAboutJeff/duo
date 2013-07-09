@@ -11,7 +11,7 @@ Duo is a web application built to help teams connect across a single organizatio
 
 Duo allows you to create and delete people, create and delete teams, and insert and remove people from teams. Often a person will belong to many different teams, having teammates across the organization.
 
-Every Friday at 5pm Duo generates a new pairing notification for each person by selecting from their available teammates. An individualized pairing notificaion is shared via email to each person in the organization.
+Every Friday at 5:00pm PST Duo generates a new pairing notification for each person by selecting from their available teammates. An individualized pairing notificaion is shared via email to each person in the organization.
 
 **So to recap:**
 
@@ -20,7 +20,7 @@ Every Friday at 5pm Duo generates a new pairing notification for each person by 
      - Each person has a name and a unique email address.
   - The people in an organization are divided up into several teams.
      - Each team has a unique name.
-  - People and teams have a many-to-many relationship**: one person can belong to multiple teams.
+  - People and teams have a many-to-many relationship: one person can belong to multiple teams.
   - If Person A and Person B belong to the same team, they are teammates.
   - A weekly pair must consist of two people who are teammates.
 
@@ -31,7 +31,7 @@ Every Friday at 5pm Duo generates a new pairing notification for each person by 
   - Insert people into teams.
   - Remove people from teams.
 
-Every Friday at 5:00PM, Duo delivers an email to each person with their pair assignment for the next week.
+Every Friday at 5:00PM PST Duo delivers an email to each person with their pair assignment for the next week.
 
 ##Install
 

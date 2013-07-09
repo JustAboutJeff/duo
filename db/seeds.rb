@@ -1,12 +1,12 @@
-seed_users = [User.create(name: "Jeff", email: "jrbelser@gmail.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Anthony", email: "anthony@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Linden", email: "linden@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Alexander", email: "alexander@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Alan", email: "alan@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Abdul", email: "abdul@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Scott", email: "scott@ifttt.com", password: "password", password_confirmation: "password"),
-              # User.create(name: "Devin", email: "devin@ifttt.com", password: "password", password_confirmation: "password"),
-              User.create(name: "Just", email: "justaboutjeff@gmail.com", password: "password", password_confirmation: "password")] #Nate
+seed_users = [User.create(name: "Jeff", email: "jeff@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Anthony", email: "anthony@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Linden", email: "linden@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Alexander", email: "alexander@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Alan", email: "alan@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Abdul", email: "abdul@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Scott", email: "scott@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Devin", email: "devin@ifttt.com", password: "password", password_confirmation: "password"),
+              User.create(name: "Nate", email: "nate@ifttt.com", password: "password", password_confirmation: "password")]
 
 seed_teams = [Team.create(name: "Channel Team"),
               Team.create(name: "Recipe Team"),

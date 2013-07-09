@@ -9,15 +9,3 @@ task :notify_duos => :environment do
     puts "complete."
   end
 end
-
-task :notify_jeff => :environment do
-    puts "Building Jeff pair and notifying..."
-    jeff = User.create(name: "Just", email: "justaboutjeff@gmail.com", password: "password", password_confirmation: "password")
-    jr = User.create(name: "JRB", email: "jrbelser@gmail.com", password: "password", password_confirmation: "password")
-    jeff.set_partner(jr)
-    DuoMailer.duo_notify(jeff).deliver
-    DuoMailer.duo_notify(jr).deliver
-    jeff.destroy
-    jr.destroy
-    puts "complete."
-end

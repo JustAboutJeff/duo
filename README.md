@@ -89,9 +89,12 @@ On the Users table things got interesting when creating the logic for the pair a
 
 - Find the Pairs model feature branch on github [here](https://github.com/JustAboutJeff/duo/pull/30).
 
-To handle the pairing logic, I constructed a DuoCalculator class in the lib directory. I attempted to abstract as much of the logic for building relationships between users into this class as possible. The 'get_duos' method is wrapped in a Heroku scheduler rake task to run every friday at 5pm PST, sending pair assignment emails out to everyone in the organization based on the algorithm.
+To handle the pairing logic, I constructed a DuoCalculator class in the lib directory. I abstracted as much of the logic for building relationships between users into this class as possible. The DuoCalculator class includes a class method **get_duos** that sends pair assignment emails out to everyone in the organization based on an algorithm. The get_duos method is then wrapped in a **Heroku scheduler rake task** to run every friday at 5pm PST.
 
 - Find the DuoCalculator class on github [here](https://github.com/JustAboutJeff/duo/blob/master/lib/duo_calculator.rb)
+
+- Find the heroku scheduler rake task [here](https://github.com/JustAboutJeff/duo/blob/master/lib/tasks/scheduler.rake)
+
 
 ##Testing
 
@@ -103,9 +106,9 @@ Please check out the spec folder within the application directory to view some o
 
 Once your testing environment is ready run the specs from the terminal within the app directory:
 
-		$ rspec spec -fn
+	$ rspec spec -fn
 
-Outside of formal specs, I tested the app across a number of different browsers to inspect my front-end rendering and responsive design. For the email notifications I configured ActiveMailer to use a test gmail account on my local development environment. I also did a bit of UX research with the help of my girlfriend by asking her to use the application and the forms for editing the roster of a team.
+Outside of formal specs, I tested the app across a number of different browsers and devices to inspect my front-end rendering and responsive design. For the email notifications I configured ActiveMailer to use a test gmail account in my local development environment and explored a few different gems to control the chron mailer tasks in the production environment.
 
 ##Final Thoughts
 

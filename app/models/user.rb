@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :team_members
   has_many :teams, through: :team_members
-  belongs_to :partner, class_name: 'User'
+
+  has_many :pairs
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
@@ -16,11 +17,14 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :get_gravatar_hash
 
-  # This method is a patch for building a self-referential
-  # and cyclical relationship on the user model.
-  def set_partner(pair)
-    self.partner = pair
-    pair.partner = self
+  # grabs the most recent pair object (pair relationship)
+  def current_pair
+    @current_pair ||= pairs.order("date DESC").limit(1).pop
+  end
+
+  # grabs the most recent user object (pair relationship)
+  def current_partner
+    current_pair.pair
   end
 
   private
